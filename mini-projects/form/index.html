@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form>
+            <div class="form-group">
+                <label for="username-input">Username</label>
+                <input type="text" id="username-input" placeholder="Enter your username" required>
+                <span class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="password-input">Password</label>
+                <input type="password" id="password-input" placeholder="Enter your password" required>
+                <span class="error-message"></span>
+            </div>
+            <button type="button" class="login-btn" id="login-btn">Login</button>
+        </form>
+    </div>
+
+
+    <script>
+
+        document.getElementById('login-btn').addEventListener('click', function() {
+            const username = document.getElementById('username-input').value.trim();
+            const password = document.getElementById('password-input').value.trim();
+            let usernameError = document.querySelector('.form-group:nth-child(1) .error-message');
+            let passwordError = document.querySelector('.form-group:nth-child(2) .error-message');
+
+            usernameError.textContent = '';
+            passwordError.textContent = '';
+
+            // check each field separately
+            if (username === '') {
+                usernameError.textContent = 'Please enter your username.';
+                return;
+            }
+
+            if (password === '') {
+                passwordError.textContent = 'Please enter your password.';
+                return;
+            }
+
+            // credentials validation
+            if (username === 'admin' && password === 'password123') {
+                alert('Login successful!');
+            } else {
+                usernameError.textContent = 'Invalid username or password.';
+                passwordError.textContent = 'Invalid username or password.';
+            }
+        });
+
+
+    </script>
+</body>
+</html>
