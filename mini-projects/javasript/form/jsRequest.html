@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="content"></div>
+
+    
+
+
+    <script>
+        let request = new XMLHttpRequest();
+        request.open("GET", "https://jsonplaceholder.typicode.com/posts");
+        request.responseType = "json";
+        request.send();
+        request.onload = function(){
+            let posts = request.response;
+
+            for(post of posts){
+                document.getElementById("content").innerHTML += `<h2>${post.title}</h2>`;
+                console.log(post.title);
+            }
+        }
+
+         
+
+        //console.log(request);
+    </script>
+</body>
+</html>

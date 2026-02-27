@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>📝 My To-Do List</h1>
+        <div id="input-list">
+            <input type="text" placeholder="Add a new task...">
+        </div>
+        <div id="output-list"></div>
+    </div>
+
+    <script>
+        let inputList = document.getElementById('input-list');
+        let outputList = document.getElementById('output-list');
+
+        inputList.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') {
+                let inputValue = e.target.value;
+                if(inputValue.trim() !== '') {
+                    let outputItem = document.createElement('div');
+                    let checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    let span = document.createElement('span');
+                    span.textContent = inputValue;
+                    outputItem.appendChild(checkbox);
+                    outputItem.appendChild(span);
+                    outputList.appendChild(outputItem);
+                    e.target.value = '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+    
+</body>
+</html>

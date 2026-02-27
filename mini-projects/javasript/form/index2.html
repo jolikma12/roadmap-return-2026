@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex;justify-content: center;align-items: center;"> 
+        <div style="margin-right: 10px;">
+            <h2>First   Nuùber</h2>
+            <input type="text" id="first-input">
+        </div>
+        <div style="margin-right: 10px;">
+            <h2>Second   Nuùber</h2>
+        <input type="text" id="second-input">
+    </div>
+
+    <div style="width: 100%;text-align: center;margin-top: 10px; ">
+        <button style="width: 100px;height: 50px;" id="calc-btn">Divide</button>
+    </div>
+
+    <div style="width: 100%; text-align: center;"> 
+        <h2>Result : <span id="result">20</span></h2>
+    </div>
+
+
+    <div style="width: 100%;text-align: center;margin-top: 10px; ">
+        <a href="index.html" style="width: 100px;height: 50px;" id="calc-btn">go to first page </button>
+    </div>
+
+
+
+<script src="js/logic.js"></script>
+<script>
+        document.getElementById("calc-btn").addEventListener("click", function() {
+        let firstinput = document.getElementById("first-input").value;
+        let secondinput = document.getElementById("second-input").value;
+
+
+
+        try {
+
+        let result = divide(Number(firstinput), Number(secondinput));
+        document.getElementById("result").textContent = result;
+
+        }catch(error){
+            document.getElementById("result").innerHTML = `<span style="color: yellow;">${error}</span>`;
+        }finally{
+            console.log("calculation attempted");
+        }
+        
+    })
+</script>
+
+
+</body>
+</html>
