@@ -12,6 +12,9 @@
 
 
     <script>
+
+        function fetchPosts()
+        {
         let request = new XMLHttpRequest();
         request.open("GET", "https://jsonplaceholder.typicode.com/posts");
         request.responseType = "json";
@@ -24,10 +27,17 @@
                 console.log(post.title);
             }
         }
-
+        }
          
 
-        //console.log(request);
+        function createPost(postData)
+        {
+            let request = new XMLHttpRequest();
+            request.open("POST", "https://jsonplaceholder.typicode.com/posts");
+            request.responseType = "json";
+            request.setRequestHeader("Accept", "application/json");
+             
+        }
     </script>
 </body>
 </html>

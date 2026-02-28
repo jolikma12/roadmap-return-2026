@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+
+
+    <script>
+        class Animal {
+
+            constructor(name,color){
+                this.name = name;
+                this.color = color;
+                console.log("an animal is created");
+            }
+
+            move(){
+                console.log("the animal is moving " + this.name);
+            }
+
+            jump(){
+                console.log("the animal is jumping  " + this.name);
+            }
+        }
+
+        let lion = new Animal('lion', 'yellow');
+        let tiger = new Animal('tiger', 'orange');
+
+        let lionName = lion.name; // lion
+        let lionColor = lion.color; // yellow
+
+
+        console.log(lionName);
+        console.log(lion.color);
+        
+        lion.move(); // the animal is moving
+        lion.jump(); // error: lion.jump is not a function
+
+        tiger.move(); 
+    </script>
+    
+</body>
+</html>
